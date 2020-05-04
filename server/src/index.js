@@ -1,14 +1,14 @@
-require('dotenv')
-const express = require('express');
+require("dotenv/config");
+const express = require("express");
+const routes = require("./routes");
 
-const PORT = process.env.PORT || 3333
+const PORT = process.env.PORT || 3333;
 
-const app = express()
+const app = express();
 
-app.get('/api',(req,res)=>{
-  return res.json({message:'Hello World'})
-})
+app.use(express.json());
+app.use(routes);
 
-app.listen(PORT,()=>{
-  console.log(`App listening on port ${PORT}`)
-})
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+});
