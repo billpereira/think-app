@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../logo-pages.png";
 import Table from "./Table";
 import "./GroupsPage.css";
@@ -6,6 +6,13 @@ import "./GroupsPage.css";
 const userData = {};
 
 const GroupsPage = () => {
+  const [userid, setUserid] = useState("");
+  const [connections, setConnections] = useState([]);
+  const [newGroup, setNewGroup] = useState("");
+  const [groupToDelete, setGroupToDelete] = useState("");
+
+  const searchGroups = () => {};
+
   return (
     <div>
       <nav>
@@ -22,7 +29,9 @@ const GroupsPage = () => {
           <div className="row search-row">
             <div>
               User: <input></input>
-              <button className="add-button">Search</button>
+              <button className="add-button" onClick={() => searchGroups()}>
+                Search
+              </button>
             </div>
             <div>
               <input></input>
