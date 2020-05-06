@@ -1,8 +1,9 @@
-import React from 'react'
-import logo from '../logo-pages.png'
-import Table from './Table'
-import './GroupsPage.css'
+import React from "react";
+import logo from "../logo-pages.png";
+import Table from "./Table";
+import "./GroupsPage.css";
 
+const userData = {};
 
 const GroupsPage = () => {
   return (
@@ -16,21 +17,25 @@ const GroupsPage = () => {
       <div className="row">
         <div className="page-area">
           <div className="row title">
-          <h2>Manage User Groups</h2>
+            <h2>Manage User Groups</h2>
           </div>
           <div className="row search-row">
             <div>
               User: <input></input>
+              <button className="add-button">Search</button>
             </div>
-            <div><button className="add-button">ADD Group</button></div>
+            <div>
+              <input></input>
+              <button className="add-button">ADD Group</button>
+            </div>
           </div>
           <div className="row">
-            <Table></Table>
+            <Table userData={userData}></Table>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GroupsPage
+export default GroupsPage;
