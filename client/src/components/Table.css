@@ -1,0 +1,24 @@
+.table{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.header, .line-light, .line-heavy {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #D6D6D6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 20px;
+}
+
+.line-light{
+  background-color: #FAFAFA;
+}
+.line-heavy{
+  background-color: #F0F0F0;
+}
