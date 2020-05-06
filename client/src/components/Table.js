@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Table.css";
 
-const Table = (userData) => {
+const Table = ({ userData, deleteGroup, setGroupToDelete, groupToDelete }) => {
   const { connections } = userData;
+  console.log(connections);
+
   return (
     <div className="table">
       <div className="header">
@@ -15,13 +17,26 @@ const Table = (userData) => {
       {connections &&
         connections.map((connection, i) => {
           return (
-            <div className={i % 2 === 0 ? "line-light" : "line-heavy"}>
+            <div
+              className={i % 2 === 0 ? "line-light" : "line-heavy"}
+              key={i}
+              onMouseOver={() => {
+                setGroupToDelete(connection.group);
+              }}
+            >
               <div className="field">{connection.group}</div>
               <div className="field">{connection.auth}</div>
               <div className="field">{connection.connectOwner}</div>
               <div className="field">{connection.connectDate}</div>
               <div className="field">
-                <button className="delete-btn">X</button>
+                <button
+                  className="delete-btn"
+                  onClick={async () => {
+                    deleteGroup();
+                  }}
+                >
+                  X
+                </button>
               </div>
             </div>
           );

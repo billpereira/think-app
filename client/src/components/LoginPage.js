@@ -14,7 +14,7 @@ const LoginPage = () => {
 
     try {
       const response = await api.post("api/login", data);
-      localStorage.setItem('auth',response.data.auth)
+      localStorage.setItem("auth", response.data.auth);
       response.data.auth
         ? history.push("/groups")
         : alert("User or Password Invalid");

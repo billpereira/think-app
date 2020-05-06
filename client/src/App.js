@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import GroupsPage from "./components/GroupsPage";
 import "./App.css";
 
-const isAuthenticated = () => localStorage.getItem('auth')
+const isAuthenticated = () => localStorage.getItem("auth") === true;
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
+    render={(props) =>
       isAuthenticated() ? (
         <Component {...props} />
       ) : (
@@ -20,19 +20,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 function App() {
-
   return (
     <Router>
-      <Route
-        exact
-        path="/"
-        component={LoginPage}
-      />
-      <PrivateRoute
-        exact
-        path="/groups"
-        component={GroupsPage}
-      />
+      <Route exact path="/" component={LoginPage} />
+      <PrivateRoute exact path="/groups" component={GroupsPage} />
     </Router>
   );
 }
