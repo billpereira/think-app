@@ -4,7 +4,7 @@ import LoginPage from "./components/LoginPage";
 import GroupsPage from "./components/GroupsPage";
 import "./App.css";
 
-const isAuthenticated = () => localStorage.getItem("auth") === true;
+const isAuthenticated = () => localStorage.getItem("auth");
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
